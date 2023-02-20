@@ -5,25 +5,27 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MainPage } from "./components/pages/MainPage";
+import  MainPage  from "./components/pages/MainPage";
 import About from "./components/pages/ActionCard/About";
-import Reservation from "./components/pages/reservation/Reservation";
+import Reservation from "./components/pages/Reservation";
 import { Contact } from "./components/pages/Contact";
 import AdminPage from "./components/pages/AdminPage";
-import { Login } from "./components/pages/Login";
+import  LoginPage  from "./components/pages/LoginPage";
 import { Register } from "./components/pages/Register";
+import PersonnelPage from "./components/pages/PersonnelPage";
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
         <Route path="/mainPage" element={<MainPage />} />
-        <Route path="/aboutUs" element={<About />} />
-        <Route path="/reservation" element={<Reservation />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/Admin" element={<AdminPage />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
+        <Route path="/aboutUsPage" element={<About />} />
+        <Route path="/reservationPage" element={<Reservation />} />
+        <Route path="/contactPage" element={<Contact />} />
+        <Route path="/AdminPage" element={<AdminPage />} />
+        <Route path="/LoginPage" element={<LoginPage />} />
+        <Route path="/RegisterPage" element={<Register />} />
+        <Route path="/PersonnelPage"element={<PersonnelPage/>}/>
       </Route>
     </Routes>
   </BrowserRouter>,

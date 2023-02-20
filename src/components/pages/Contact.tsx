@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import CommonButton from "./common/CommonButton";
+
 
 export const Contact = () => {
   return (
@@ -65,16 +65,16 @@ export const Contact = () => {
                 required
               />
             </Grid>
-            <Grid xs={6} md={8}item>
-              <CommonButton
+            <Grid xs={12}item>
+              <Button
                 size="medium"
                 variant="contained"
                 type="submit"
                 fullWidth
               >
                 Wyslij
-              </CommonButton>
-              {/* //<Button variant="contained">Wyslij</Button> */}
+              </Button>
+            
             </Grid>
           </Grid>
           </form>

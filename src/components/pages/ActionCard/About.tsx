@@ -1,14 +1,22 @@
+import { Stack } from "@mui/system";
 import React from "react";
-import { ActionCard } from "./ActionCard";
+import ActionCardBrygida from "./ActionCardBrygida";
+import ActionCardCzeslaw from "./ActionCardCzeslaw";
+import ActionCardStefan from "./ActionCardStefan";
 
 export const About = () => {
   return (
     <div className="body">
-      <section>
-        <ActionCard />
-        <ActionCard />
-        <ActionCard />
-      </section>
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <ActionCardCzeslaw />
+        <ActionCardBrygida />
+        <ActionCardStefan />
+      </Stack>
     </div>
   );
 };

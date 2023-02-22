@@ -9,7 +9,7 @@ interface Availability {
   evening: boolean;
 }
 
-const AvailabilityCalendar: React.FC = () => {
+const PersonnelPage: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [availability, setAvailability] = useState<Availability>({
     morning: false,
@@ -81,4 +81,4 @@ const AvailabilityCalendar: React.FC = () => {
   );
 };
 
-export default AvailabilityCalendar;
+export default PersonnelPage;

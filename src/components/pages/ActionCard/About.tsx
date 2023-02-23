@@ -14,8 +14,13 @@ export const About = () => {
         spacing={2}
       >
         <ActionCardCzeslaw />
+<<<<<<< Updated upstream
         <ActionCardBrygida />
         <ActionCardStefan />
+=======
+        <ActionCardStefan />
+        <ActionCardBrygida />
+>>>>>>> Stashed changes
       </Stack>
     </div>
   );

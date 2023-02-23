@@ -8,7 +8,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import  MainPage  from "./components/pages/MainPage";
 import About from "./components/pages/ActionCard/About";
 import Reservation from "./components/pages/Reservation";
+<<<<<<< Updated upstream
 import { Contact } from "./components/pages/Contact";
+=======
+import  Contact  from "./components/pages/Contact";
+>>>>>>> Stashed changes
 import AdminPage from "./components/pages/AdminPage";
 import  LoginPage  from "./components/pages/LoginPage";
 import { Register } from "./components/pages/Register";

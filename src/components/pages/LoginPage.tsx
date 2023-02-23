@@ -1,26 +1,9 @@
-import React, { useState } from "react";
 import axios from "axios";
-<<<<<<< Updated upstream
-import {
-  Button,
-  Card,
-  CardContent,
-  Grid,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-
-interface LoginProps {}
-
-const LoginPage: React.FC<LoginProps> = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-=======
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
-import Logo from"../images/Logo.png"
+import { Link, useNavigate } from "react-router-dom";
+import Logo from"../pages/images/Logo.png"
+import { ThemeProvider } from "@emotion/react";
+import { createTheme, Typography, Grid, CssBaseline, Paper, Box, Avatar, TextField, Button } from "@mui/material";
 
 //import { signIn } from "../../services/authService";
 
@@ -34,7 +17,7 @@ function Copyright(props: any) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="#">
+      <Link color="inherit" to={""}>
         HairCutime
       </Link>{" "}
       {new Date().getFullYear()}
@@ -48,84 +31,18 @@ const LoginPage: React.FC = () => {
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState("");
   let navigate = useNavigate();
->>>>>>> Stashed changes
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-<<<<<<< Updated upstream
       const response = await axios.post("https://localhost:8080/login", {
         email: email,
         password: password,
-=======
-      const response = await axios.post("api/login", {
-        email: data.get("email"),
-        password: data.get("password"),
->>>>>>> Stashed changes
       });
       // handle successful login here
     } catch (error) {
       setError("Invalid email or password.");
     }
-<<<<<<< Updated upstream
-  };
-
-  return (
-    <Wrapper>
-      <Typography gutterBottom variant="h4" align="center">
-        Login
-      </Typography>
-      <Card>
-        <CardContent>
-          <form onSubmit={handleSubmit}>
-            <Grid container spacing={1}>
-              <Grid xs={12} sm={6} item>
-                <TextField
-                  label="Podaj Email"
-                  placeholder="Twoj Email"
-                  variant="outlined"
-                  value={email}
-                  fullWidth
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </Grid>
-              <Grid xs={12} sm={6} item>
-                <TextField
-                  label="Podaj Hasło"
-                  placeholder="Twoje Hasło"
-                  variant="outlined"
-                  type="password"
-                  value={password}
-                  fullWidth
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </Grid>
-              {error && <Error>{error}</Error>}
-              <Button variant="contained" fullWidth type="submit">
-                Login
-              </Button>
-            </Grid>
-          </form>
-        </CardContent>
-      </Card>
-    </Wrapper>
-  );
-};
-
-const Wrapper = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  gap: "1rem",
-});
-
-
-const Error = styled("div")({
-  color: "red",
-  fontWeight: "bold",
-});
-
-=======
     //  signIn(navigate, data.get("email"), data.get("password"));
   };
 
@@ -201,16 +118,14 @@ const Error = styled("div")({
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link to={""}>
                     Zapomniałeś Hasła?
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link
-                    component="button"
-                    variant="body2"
-                    onClick={() => navigate("registerPage")}
-                  >
+                    // component="button"
+                    onClick={() => navigate("registerPage")} to={""}                  >
                     {"Nie masz jeszcze, konta stwórz je tutaj!"}
                   </Link>
                 </Grid>
@@ -224,5 +139,4 @@ const Error = styled("div")({
   );
 };
 
->>>>>>> Stashed changes
 export default LoginPage;

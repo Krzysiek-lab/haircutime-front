@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream
-import {
-  Button,
-  Card,
-  CardContent,
-  Grid,
-  TextField,
-  Typography,
-} from "@mui/material";
-import React from "react";
-=======
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -21,86 +10,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
->>>>>>> Stashed changes
 
-import { useState } from "react";
-import Logo from "../images/Logo.png";
+import Logo from"../pages/images/Logo.png"
 import { Container } from "@mui/material";
 import { send } from "emailjs-com";
 function Copyright(props: any) {
   return (
-<<<<<<< Updated upstream
-    <div>
-      <Typography gutterBottom variant="h5" align="center">
-        Kontakt
-      </Typography>
-      <Card>
-        <CardContent>
-          <form>
-          <Grid container spacing={1}>
-            <Grid xs={12} sm={6} item>
-              <TextField
-                label="Twoje Imie"
-                placeholder="Podaj imie"
-                fullWidth
-                required
-              />
-            </Grid>
-            <Grid xs={12} sm={6} item>
-              <TextField
-                label="Twoje Nazwisko"
-                placeholder="Podaj nazwisko"
-                fullWidth
-                required
-              />
-            </Grid>
-
-            <Grid xs={12} sm={6} item>
-              <TextField
-                type="Email"
-                label="Twoje Email"
-                placeholder="Podaj email"
-                fullWidth
-                required
-              />
-            </Grid>
-            <Grid xs={12} sm={6} item>
-              <TextField
-                type="Number"
-                label="Twoje numer telefonu"
-                placeholder="Podaj numer telefonu"
-                fullWidth
-                required
-              />
-            </Grid>
-            <Grid xs={12} item>
-              <TextField
-                type="Message"
-                multiline
-                rows={4}
-                label="Twoja wiadomosc"
-                placeholder="Zadaj swoje pytanie"
-                fullWidth
-                required
-              />
-            </Grid>
-            <Grid xs={12}item>
-              <Button
-                size="medium"
-                variant="contained"
-                type="submit"
-                fullWidth
-              >
-                Wyslij
-              </Button>
-            
-            </Grid>
-          </Grid>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
-=======
     <Typography
       variant="body2"
       color="text.secondary"
@@ -253,7 +168,6 @@ export const ContactPage = () => {
         <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
->>>>>>> Stashed changes
   );
 };
 export default ContactPage;

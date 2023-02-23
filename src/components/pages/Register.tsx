@@ -32,7 +32,7 @@ function Copyright(props: any) {
 }
 const theme = createTheme();
 export const Register = () => {
-  const registerUrl = "http://localhost:8080/user/add";
+  const registerUrl = "http://localhost:8080/user/create";
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [login, setLogin] = useState("");

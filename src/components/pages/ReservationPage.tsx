@@ -197,7 +197,7 @@ const ReservationPage: React.FC = () => {
               
                 <Grid item xs={12} justifyContent="center">
                 <Typography>Wybierz Fryzjera:</Typography>
-                <FormControl sx={{ m: 1 }} variant="outlined">
+                <FormControl sx={{ m: 1 }} variant="outlined" fullWidth>
                   <InputLabel htmlFor="barber-select">Dostępni:</InputLabel>
                   <Select
                     id="barber-select"
@@ -216,7 +216,7 @@ const ReservationPage: React.FC = () => {
                 </FormControl>
                 <Grid item xs={12} justifyContent="center">
                 <Typography>Wybierz usługę:</Typography>
-                <FormControl sx={{ m: 1 }} variant="outlined">
+                <FormControl sx={{ m: 1 }} variant="outlined" fullWidth>
                   <InputLabel htmlFor="product-select">Dostępne:</InputLabel>
                   <Select
                     id="product-select"

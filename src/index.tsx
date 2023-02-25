@@ -27,7 +27,7 @@ ReactDOM.render(
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/RegisterPage" element={<Register />} />
         <Route path="/PersonnelPage"element={<PersonnelPage/>}/>
-        <Route path="/EditPage"element={<EditPage/>}/>
+        <Route path="/EditPage/:id" element={<EditPage/>}/>
       </Route>
     </Routes>
   </BrowserRouter>,

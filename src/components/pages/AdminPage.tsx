@@ -52,12 +52,14 @@ import axios from "axios";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Link } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { id } from "date-fns/locale";
 
 const AdminPage=()=> {
   const [barbers, setBarbers] = useState<Barber[]>([]);
+  const navigate = useNavigate();
 
-
+  const { id } = useParams();
   interface Barber{
     id:number;
     name:string;
@@ -98,14 +100,9 @@ const AdminPage=()=> {
                 <IconButton aria-label="delete" onClick={() => handleDelete(barber.id)}>
                   <DeleteIcon />
                 </IconButton>
-                {/* <IconButton aria-label="edit" onClick={() => handleEdit(barber.id)}> */}
-                <Link onClick={() => {
-    console.info("I'm a button.");
-}}component="button" variant="body2" href= '/EditPage'>
-                  
+                <IconButton aria-label="edit" onClick={() => navigate(`/EditPage/${barber.id}`)}>
                   <EditIcon />
-                  </Link>
-                {/* </IconButton> */}
+                </IconButton>
               </TableCell>
             </TableRow>
           ))}

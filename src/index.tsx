@@ -13,6 +13,7 @@ import  LoginPage  from "./components/pages/LoginPage";
 import { Register } from "./components/pages/Register";
 import PersonnelPage from "./components/pages/PersonnelPage";
 import ReservationPage from "./components/pages/ReservationPage"
+import EditPage from "./components/pages/EditPage";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -26,6 +27,7 @@ ReactDOM.render(
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/RegisterPage" element={<Register />} />
         <Route path="/PersonnelPage"element={<PersonnelPage/>}/>
+        <Route path="/EditPage"element={<EditPage/>}/>
       </Route>
     </Routes>
   </BrowserRouter>,

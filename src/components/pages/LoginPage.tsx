@@ -78,7 +78,7 @@ const LoginPage: React.FC = () => {
           >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }} src={Logo} />
             <Typography component="h1" variant="h5">
-              Sign in
+              Logowanie
             </Typography>
             <Box
               component="form"
@@ -114,7 +114,7 @@ const LoginPage: React.FC = () => {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Zaloguj się
               </Button>
               <Grid container>
                 <Grid item xs>

@@ -41,4 +41,10 @@ export const navbarItems=[
     label:'O Nas',
     route:'aboutUsPage',
   },
+  {
+    id:5,
+    icon:<InfoIcon/>,
+    label:'Admin',
+    route:'AdminPage',
+  },
 ]

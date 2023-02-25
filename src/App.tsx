@@ -13,7 +13,6 @@ const App=()=> {
       <Navbar />
       <Outlet />
     </Grid>
-    
   );
 }
 

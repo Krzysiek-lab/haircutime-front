@@ -41,7 +41,7 @@ export const ContactPage = () => {
   const [message, setMessage] = React.useState("");
   const [toSend, setToSend] = React.useState({
     from_name: "",
-    surname: "",
+    to_name: "",
     reply_to: "",
     message: "",
   });
@@ -53,7 +53,11 @@ export const ContactPage = () => {
     send(
       'service_scm8h2o',
         'template_yhoie6n',
-        toSend,
+        {from_name: name,
+        to_name: surname,
+        reply_to: email,
+        message: message
+      },
         'NsZXsqZ0OGQf6kys6'
         )
         .then((response) => {
@@ -90,14 +94,14 @@ export const ContactPage = () => {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name={toSend.from_name}
                   required
                   fullWidth
                   id="firstName"
                   label="Podaj Imie"
                   placeholder="Twoje Imie"
                   
-                  value={toSend.from_name}
+                  value={name}
                   onChange={(event) => {
                     setName(event.target.value);
                   }}
@@ -110,8 +114,8 @@ export const ContactPage = () => {
                   id="surnameName"
                   label="Podaj Nazwisko"
                   placeholder="Twoje Nazwisko"
-                  name="surname"
-                  value={toSend.surname}
+                  name={toSend.to_name}
+                  value={surname}
                   onChange={(event) => {
                     setSurname(event.target.value);
                   }}
@@ -124,8 +128,8 @@ export const ContactPage = () => {
                   id="email"
                   label="Podaj Email"
                   placeholder="Twój Email"
-                  name="email"
-                  value={toSend.reply_to}
+                  name={toSend.reply_to}
+                  value={email}
                   onChange={(event) => {
                     setEmail(event.target.value);
                   }}
@@ -135,13 +139,13 @@ export const ContactPage = () => {
                 <TextField
                   required
                   fullWidth
-                  name="message"
+                  name={toSend.message}
                   label="Zadaj Pytanie!"
                   placeholder="Twoje Pytanie"
                   id="message"
                   multiline
                   rows={4}
-                  value={toSend.message}
+                  value={message}
                   onChange={(event) => {
                     setMessage(event.target.value);
                   }}

@@ -17,7 +17,7 @@ import dayjs, { Dayjs } from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import { FormControl, InputLabel, MenuItem, NativeSelect } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, NativeSelect, Select } from "@mui/material";
 function Copyright(props: any) {
   return (
     <Typography
@@ -39,11 +39,13 @@ const theme = createTheme();
 const ReservationPage: React.FC = () => {
 
   
-  const [barberId, setBarberId] = React.useState<number>(0);
-  const [productid, setProductId] = React.useState<number>(0);
-  const [selectedDate, setSelectedDate] = React.useState<Dayjs | null>(
-    dayjs("2023-02-20")
+  const [barberId, setBarberId] = React.useState<number| string>(0);
+  const [productId, setProductId] = React.useState<number | string>(0);
+  const [date, setDate] = React.useState<Dayjs | null>(
+    dayjs("2023-02-20 12:00:11")
   );
+  const [product,setProduct]=React.useState<Product[]>([]);
+  const [barbers, setBarbers] = useState<Barber[]>([]);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -54,38 +56,19 @@ const ReservationPage: React.FC = () => {
     email: "",
     phoneNumber: "",
   });
-  const [formData, setFormData] = useState({
-    barberId: "",
-    selectedDate: "",
-    productid: "",
-  });
-
-  const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
+  
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const reservationData = {
-      barberId,
-      selectedDate,
-      productid,
-      name,
-      surname,
-      email,
-      phoneNumber,
+      date,
+      productId,
+      userId:1,
+      serviceLength:productId,
+      time:dayjs(date).hour() + ":" + dayjs(date).minute() +":" + dayjs(date).second()
     };
-  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-     event.preventDefault();
-    // const reservationData = {
-    //   barberId,
-    //   selectedDate,
-    //   productid,
-      };
-    
-      const response = await axios.post("/api/reservation", formData)
+  
+      const response = await axios.post("http://localhost:8080/appointment/create",reservationData
+      )
       .then((response) => {
         console.log(response.data);
       })
@@ -94,6 +77,35 @@ const ReservationPage: React.FC = () => {
       }); 
     
   };
+  interface Barber {
+    id: number;
+    name: string;
+    surname: string;
+  }
+  interface Product{
+    id:number;
+    productName:string;
+  }
+  
+  const loadBarbers =async()=>{
+    await axios.get<Barber[]>("http://localhost:8080/barber/get")
+    .then((response) => setBarbers(response.data))
+    .catch((error) => console.log(error));
+  }
+  const loadProducts=async()=>{
+    await axios.get<Product[]>("http://localhost:8080/product/get")
+    .then((result) => setProduct(result.data))
+    .catch((error) => console.log(error))
+  }
+  
+    React.useEffect(() => {
+      loadBarbers()},
+       []);
+
+       React.useEffect(() => {
+        loadProducts()},
+         []);
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -182,50 +194,55 @@ const ReservationPage: React.FC = () => {
                   }}
                 />
               </Grid>
-              <Grid item xs={12} justifyContent="center">
+              
+                <Grid item xs={12} justifyContent="center">
                 <Typography>Wybierz Fryzjera:</Typography>
                 <FormControl sx={{ m: 1 }} variant="outlined">
                   <InputLabel htmlFor="barber-select">Dostępni:</InputLabel>
-                  <NativeSelect
+                  <Select
                     id="barber-select"
                     value={barberId}
                     onChange={(event) =>
-                      setBarberId(parseInt(event.target.value))
+                      setBarberId(event.target.value)
                     }
                   >
-                    <option aria-label="None" value="" />
-                    <option value={1}>Czesiek Czapka</option>
-                    <option value={2}>Stefan Jajecznica</option>
-                    <option value={3}>Brygida Mocznik</option>
-                  </NativeSelect>
+                    {barbers.map((barber) => (
+                      <MenuItem key={barber.id} value={barber.id}>
+                        {barber.name}
+                        {" " + barber.surname}
+                      </MenuItem>
+                    ))}
+                  </Select>
                 </FormControl>
-                <Grid item xs={12}>
-                  <Typography>Wybierz Fryzjera:</Typography>
-                  <FormControl sx={{ m: 1 }} variant="outlined">
-                    <InputLabel htmlFor="product-select">Dostępni:</InputLabel>
-                    <NativeSelect
-                      id="product-select"
-                      value={productid}
-                      onChange={(event) =>
-                        setProductId(parseInt(event.target.value))
-                      }
-                    >
-                      <option aria-label="None" value="" />
-                      <option value={1}>Strzyżenie Męskie</option>
-                      <option value={2}>Strzyżenie Damskie</option>
-                      <option value={3}>Hot Towel</option>
-                    </NativeSelect>
-                  </FormControl>
-                </Grid>
+                <Grid item xs={12} justifyContent="center">
+                <Typography>Wybierz usługę:</Typography>
+                <FormControl sx={{ m: 1 }} variant="outlined">
+                  <InputLabel htmlFor="product-select">Dostępne:</InputLabel>
+                  <Select
+                    id="product-select"
+                    value={productId}
+                    onChange={(event) =>
+                      setProductId(event.target.value)
+                    }
+                  >
+                    {product.map((product) => (
+                      <MenuItem key={product.id} value={product.id}>
+                        {product.productName}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
               </Grid>
               <Grid xs={12} item justifyContent="flex-end">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DateTimePicker
                     renderInput={(props) => <TextField {...props} />}
                     label="Wybierz termin"
-                    value={selectedDate}
+                    value={date}
+                    //format="YYYY-MM-DD h:mm A"
                     onChange={(newValue) => {
-                      setSelectedDate(newValue);
+                      setDate(newValue);
                     }}
                   />
                 </LocalizationProvider>

@@ -54,6 +54,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { id } from "date-fns/locale";
+import AddAlarmIcon from '@mui/icons-material/AddAlarm';
 
 const AdminPage=()=> {
   const [barbers, setBarbers] = useState<Barber[]>([]);
@@ -102,6 +103,9 @@ const AdminPage=()=> {
                 </IconButton>
                 <IconButton aria-label="edit" onClick={() => navigate(`/EditPage/${barber.id}`)}>
                   <EditIcon />
+                </IconButton>
+                <IconButton aria-label="addWorkday" onClick={() => navigate(`/AddWorkDay/${barber.id}`)}>
+                  <AddAlarmIcon />
                 </IconButton>
               </TableCell>
             </TableRow>

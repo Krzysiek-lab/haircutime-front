@@ -14,6 +14,7 @@ import { Register } from "./components/pages/Register";
 import PersonnelPage from "./components/pages/PersonnelPage";
 import ReservationPage from "./components/pages/ReservationPage"
 import EditPage from "./components/pages/EditPage";
+import AddWorkDay from "./components/pages/AddWorkDay";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -28,6 +29,7 @@ ReactDOM.render(
         <Route path="/RegisterPage" element={<Register />} />
         <Route path="/PersonnelPage"element={<PersonnelPage/>}/>
         <Route path="/EditPage/:id" element={<EditPage/>}/>
+        <Route path="/AddWorkDay/:id" element={<AddWorkDay/>}/>
       </Route>
     </Routes>
   </BrowserRouter>,

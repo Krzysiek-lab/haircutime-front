@@ -24,7 +24,7 @@ export const ActionCard=()=> {
           </Typography>
           <Typography variant="body2" color="text.secondary">
            Brygida pomimo nie długiego stażu jako fryzjerka, wygrała juz kilka Europejskich konkursów.
-           Specjalizuję się w fryzurach męskich.
+           Specjalizuję się w fryzurach męskich. Ma też doświadczenie e strzyżeniu dzieci. Farbowanie też jest jej mocną stroną.
           </Typography>
         </CardContent>
       </CardActionArea>

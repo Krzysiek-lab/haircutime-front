@@ -90,11 +90,11 @@ const LoginPage: React.FC = () => {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Podaj Email"
-                placeholder="Twój Email"
-                name="email"
-                autoComplete="email"
+                id="login"
+                label="Podaj Login"
+                placeholder="Twój Login"
+                name="login"
+                autoComplete="login"
                 autoFocus
               />
               <TextField
